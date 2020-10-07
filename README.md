@@ -1,1 +1,1 @@
-# Simple mqtt client for ruckus wifi controllers
+# Simple Сlient for RUCKUS SmartZone GPB/MQTT Interface
