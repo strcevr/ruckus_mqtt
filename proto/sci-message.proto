@@ -1,0 +1,110 @@
+syntax = "proto2";
+
+package proto;
+option java_package = "com.ruckuswireless.scg.protobuf.sci";
+
+option java_outer_classname = "SciProtocolMessage";
+
+import "ap_status.proto";
+import "ap_report.proto";
+import "ap_client.proto";
+import "ap_mesh.proto";
+import "ap_rogue.proto";
+import "sci-event.proto";
+import "sci-configuration.proto";
+import "ap_avc.proto";
+import "ap_avc_all.proto";
+import "sci-alarm.proto";
+import "ap_wired_client.proto";
+import "ap_hccd_report.proto";
+import "sci-pci.proto";
+//import "switch_all.proto";
+//import "switches.proto";
+//import "sci-rogue.proto";
+
+
+message SciMessage {
+
+    //extensions 1001 to 3000;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description protocol version.
+     * @since 3.5
+     */
+    optional string version = 1;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description Message identifier for duplication detection.
+     * @since 3.5
+     */
+    optional bytes uuid = 3;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description Sent time in milliseconds.
+     * @since 3.5
+     */
+    optional int64 sentTimeMs = 4;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description SCI System identifier.
+     * @since 3.5
+     */
+    optional string sciSystemId = 5;
+    /**
+ * @property snapshot
+ * @aggregation NULL
+ * @description APStatus from Routine AP Statistic Report.
+ * @since 3.5
+ */
+    optional APStatus apStatus = 101;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description APReportStats from Routine AP Statistic Report.
+     * @since 3.5
+     */
+    optional APReportStats apReport = 102;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description APClientStats from Routine AP Statistic Report.
+     * @since 3.5
+     */
+    optional APClientStats apClient = 103;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description APMeshStats from Routine AP Statistic Report.
+     * @since 3.5
+     */
+    optional APMeshStats apMesh = 104;
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description RogueAPStats from Routine AP Statistic Report.
+     * @since 3.5
+     */
+    optional RogueAPStats apRogue = 105;
+
+
+    /**
+     * @property snapshot
+     * @aggregation NULL
+     * @description Event message which has been applied to be sent to outer service.
+     * @since 3.5
+     */
+    optional EventMessage eventMessage = 106;
+
+}
