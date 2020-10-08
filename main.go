@@ -1,11 +1,11 @@
 package main
 
 import (
-	"./proto"
 	"encoding/json"
 	"fmt"
 	"github.com/alexflint/go-arg"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/strcevr/ruckus_mqtt/proto"
 	"log"
 	"os"
 	"os/signal"
